@@ -12,6 +12,7 @@ const Game = () => {
   const [logPlay, setLogPlay] = useState([])
   const [lifePlayer, setLifePlayer] = useState(4)
   const [playerScore, setPlayerScore] = useState(0)
+  const [playerExp, setPlayerExp] = useState(0)
   const [playerLevel, setPlayerLevel] = useState(1)
   const [countKill, setCountKill] = useState(0)
   const [weaponEquip, setWeaponEquip] = useState('')
@@ -20,6 +21,7 @@ const Game = () => {
 
   const heartLive = { "src": "/img/heart.png"}
   const heartDie = { "src": "/img/cardiogram.png"}
+  const noWeapon = { "src": "/img/no_weapon.png"}
 
   const monsterCards = [
     {
@@ -75,18 +77,21 @@ const Game = () => {
   const weaponCards = [
     {
       typeCard: 2,
+      dmg: 1,
       name: "Sword",
       img: { "src": "/img/sword.png"},
       useCount: 1
     },
     {
       typeCard: 2,
+      dmg: 1,
       name: "Arma magica",
       img: { "src": "/img/varinha-magica.png"},
       useCount: 1
     },
     {
       typeCard: 2,
+      dmg: 100,
       name: "Arma Lendária",
       img: { "src": "/img/arma-lendaria.png"},
       useCount: 1
@@ -110,10 +115,14 @@ const shuffleCardBoard = (monsterCards,itemCards,weaponCards) => {
     items.push(itemCards[Math.floor(Math.random() * itemCards.length)]);
   }
   board.push(...monsters,...weapons,...items)
-  setBoardDeck(board)
-}
 
-console.log(boardDeck)
+  const shuffledBoard = board
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+
+  setBoardDeck(shuffledBoard)
+}
 
   useEffect(() => {
     shuffleCardBoard(monsterCards,itemCards,weaponCards)
@@ -127,19 +136,18 @@ console.log(boardDeck)
     <>
       { boardDeck ? 
       boardDeck.map((card,i)=>{
-        console.log(i)
         if(i === 4){
           return(
             <CardMob
               key={i}
-              lvl = {1}
-              life = {4}
-              exp = {0}
-              imgAvatar = ""
-              name = "Heroi"
-              weapon_count = {3}
-              dmg = {2}
-              imgWeapon= ""
+              lvl = {playerLevel}
+              life = {lifePlayer}
+              exp = {playerExp}
+              imgAvatar = "/img/avatar.png"
+              name = "Jogador"
+              weapon_count = {weaponEquip ? weaponEquip.useCount : 0}
+              dmg = {weaponEquip ? weaponEquip.dmg : 0}
+              imgWeapon= {weaponEquip ? weaponEquip.img.src : noWeapon.src}
               description = "lutador nato!"
             />
           )
