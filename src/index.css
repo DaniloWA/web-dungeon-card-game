@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,3 +7,32 @@
   text-decoration: none;
   box-sizing: border-box;
 }
+
+body {
+  display: flex;
+  background: #1D1E22;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 100vh;
+}
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: 3px;
+    scrollbar-color: #3586ff #ffffff11;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff11;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #3586ff;
+    border-radius: 7px;
+  }
