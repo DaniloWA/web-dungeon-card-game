@@ -78,22 +78,25 @@ const Game = () => {
     {
       typeCard: 2,
       dmg: 1,
-      name: "Sword",
+      title: "Sword",
       img: { "src": "/img/sword.png"},
+      description: "Ataca um mob a sua frente",
       useCount: 1
     },
     {
       typeCard: 2,
       dmg: 1,
-      name: "Arma magica",
+      title: "Arma magica",
       img: { "src": "/img/varinha-magica.png"},
+      description: "Ataca uma linha inteira do tabuleiro! Cuidado.",
       useCount: 1
     },
     {
       typeCard: 2,
       dmg: 100,
-      name: "Arma Lendária",
+      title: "Arma Lendária",
       img: { "src": "/img/arma-lendaria.png"},
+      description: "Mata qualquer mob do tabuleiro e teletransporta para ele",
       useCount: 1
     },
   ]
@@ -170,7 +173,7 @@ const shuffleCardBoard = (monsterCards,itemCards,weaponCards) => {
         }
         if(card.typeCard === 1 || card.typeCard === 2){
           return(
-            <CardMob
+            <CardItem
               key={i}
               imgAvatar = {card.img.src}
               name = {card.title}
