@@ -1,24 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import AsideBoxLeft from './components/asideBoxLeft/AsideBoxLeft';
+import AsideBoxRight from './components/asideBoxRight/AsideBoxRight';
+import Layout from './Layout/Layout';
+import MainContent from './components/mainContent/MainContent'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <AsideBoxLeft />
+      <MainContent />
+      <AsideBoxRight />
+    </Layout>
   );
 }
 
