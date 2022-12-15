@@ -1,18 +1,11 @@
 import React from 'react'
 import './CardMob.css'
+import { useHearts } from './hooks/useHearts'
 
-const heartLive = { "src": "/img/heart.png"}
-const heartDie = { "src": "/img/cardiogram.png"}
+
 
 const CardMob = ({lvl = 1, life = 4, exp = 0, imgAvatar, name, weapon_count = 0, imgWeapon, dmg = 0, description}) => {
-  const hearts = [];
-
-  for (let i = 0; i < life; i++) {
-    hearts.push(<img key={Math.random()} src={heartLive.src} alt="heartLive"/>);
-  }
-  for (let i = 0; i < 4 - life; i++) {
-    hearts.push(<img key={Math.random()} src={heartDie.src} alt="heartLive"/>);
-  }
+  const [hearts] = useHearts(life)
   
   return (
     <div className='cardMob'>
