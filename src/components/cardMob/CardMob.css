@@ -6,32 +6,30 @@
   border-radius: 10px;
   border: 3px solid black;
   grid-template-columns: 1fr 2.5fr 1fr;
-  grid-template-rows: 0.5fr 7fr 1fr;
-  grid-template-areas: 
-    'cardMob_header cardMob_header cardMob_header'
-    'cardMob_image cardMob_image cardMob_image'
-    'cardMob_description cardMob_description cardMob_description'
-  ;
+  grid-template-rows: 0.5fr 7fr 40px;
+  grid-template-areas:
+    "cardMob_header cardMob_header cardMob_header"
+    "cardMob_image cardMob_image cardMob_image"
+    "cardMob_description cardMob_description cardMob_description";
 }
 
 /* --------------- CARD HEADER ------------------ */
-.cardMob_header{
+.cardMob_header {
   grid-area: cardMob_header;
   display: grid;
   grid-template-columns: 1fr 3.5fr 1fr;
-  grid-template-areas: 
-    'cardMob_header_lvl cardMob_header_life cardMob_header_exp'
-  ;
+  grid-template-areas: "cardMob_header_lvl cardMob_header_life cardMob_header_exp";
+  border-bottom: 3px solid black;
 }
 
-.cardMob_header_lvl{
+.cardMob_header_lvl {
   grid-area: cardMob_header_lvl;
   width: 100%;
   justify-self: center;
   text-align: center;
 }
 
-.cardMob_header_life{
+.cardMob_header_life {
   grid-area: cardMob_header_life;
   width: 100%;
   justify-self: center;
@@ -44,7 +42,7 @@
   margin: 0 5px 0 5px;
 }
 
-.cardMob_header_exp{
+.cardMob_header_exp {
   grid-area: cardMob_header_exp;
   width: 100%;
   justify-self: center;
@@ -52,44 +50,56 @@
 }
 
 .cardMob_header_exp p {
-   justify-self: center;
-   text-align: center;
+  justify-self: center;
+  text-align: center;
 }
 
 /* --------------- CARD IMAGE ------------------ */
 
-.cardMob_image{
+.cardMob_image {
   grid-area: cardMob_image;
   border-bottom: 3px solid black;
   position: relative;
 }
 
-.cardMob_image img {
-  width: 100%;
-  height: 200px;
+.cardMob_image_img {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  top: 20px;
 }
-.cardMob_image_title{
-  position:absolute;
+
+.cardMob_image_img img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid black;
+  box-shadow: 0px 0px 10px 2px rgb(19, 19, 19);
+}
+.cardMob_image_title {
+  position: absolute;
   bottom: 10px;
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.815);
   width: 100%;
   text-align: center;
+  color: white;
 }
 
 /* --------------- CARD DESCRIPTION ------------------ */
 
-.cardMob_description{
+.cardMob_description {
   grid-area: cardMob_description;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: 
-    'cardMob_description_dmg cardMob_description_type cardMob_description_weapon'
-    'cardMob_description_dmg cardMob_description_type cardMob_description_weapon'
-  ;
+  grid-template-areas:
+    "cardMob_description_dmg cardMob_description_type cardMob_description_weapon"
+    "cardMob_description_dmg cardMob_description_type cardMob_description_weapon";
 }
 
-.cardMob_description_weapon{
+.cardMob_description_weapon {
   grid-area: cardMob_description_weapon;
   position: relative;
   text-align: center;
@@ -98,36 +108,44 @@
 .cardMob_description_weapon img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  border-end-end-radius: 6px;
 }
 
-.cardMob_description_weapon_count{
-  position:absolute;
+.cardMob_description_weapon_count {
+  position: absolute;
   top: 0;
   opacity: 80%;
   font-weight: bold;
   padding: 1px;
-  background-color: rgb(217, 255, 0);
+  width: 15px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.998);
+  opacity: 100%;
+  color: white;
+  border-end-end-radius: 9px;
 }
 
-.cardMob_description_dmg{
+.cardMob_description_dmg {
   grid-area: cardMob_description_dmg;
-  margin-top: 8px;
-  font-size: 40px;
+  font-size: 35px;
   text-align: center;
 }
 
-.cardMob_description_type{
+.cardMob_description_type {
   grid-area: cardMob_description_type;
   border-left: 3px solid black;
   border-right: 3px solid black;
   background-color: rgb(255, 255, 255);
-  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 12px;
+  padding-right: 1.5px;
+  padding-left: 1.5px;
 }
 
 .cardMob_description_type p {
-    font-size: 12px;
-}
-
-.cardMob_description_type small {
-    font-weight: bold;
+  font-size: 12px;
 }
