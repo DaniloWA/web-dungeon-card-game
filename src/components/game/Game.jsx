@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import CardMob from './../cardMob/CardMob'
 import CardItem from './../cardItem/CardItem'
-
+import cards  from './constants'
+import F from './functions'
 
 
 const Game = () => {
@@ -19,38 +20,11 @@ const Game = () => {
   const [weaponUseCount, setWeaponUseCount] = useState(0)
   const [boardLevel, setBoardLevel] = useState(1)
 
-  const heartLive = { "src": "/img/heart.png"}
-  const heartDie = { "src": "/img/cardiogram.png"}
   const noWeapon = { "src": "/img/no_weapon.png"}
 
-
-const shuffleCardBoard = (monsterCards,itemCards,weaponCards) => { 
-  const monsters = []
-  const weapons = []
-  const items = []
-  const board = []
-  // 8 cards / 5 monstros - 2 items - 2 armas
-  for (let i = 1; i < 6; i++) {
-    monsters.push(monsterCards[Math.floor(Math.random() * monsterCards.length)]);
-  }
-  for (let i = 0; i < 2; i++) {
-    weapons.push(weaponCards[Math.floor(Math.random() * weaponCards.length)]);
-  }
-  for (let i = 0; i < 2; i++) {
-    items.push(itemCards[Math.floor(Math.random() * itemCards.length)]);
-  }
-  board.push(...monsters,...weapons,...items)
-
-  const shuffledBoard = board
-    .map(value => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value)
-
-  setBoardDeck(shuffledBoard)
-}
-
   useEffect(() => {
-    shuffleCardBoard(monsterCards,itemCards,weaponCards)
+    setBoardDeck(F.shuffleCardBoard(cards.monsterCards,cards.itemCards,cards.weaponCards))
+    F.setPlayerMovement()
   }, [])
 
   const onMovePlayer = () => {
@@ -105,7 +79,7 @@ const shuffleCardBoard = (monsterCards,itemCards,weaponCards) => {
         }
         return null
 }) : 
-      <p>falhou!</p> }
+      <h1>Tivemos um probleminha!</h1> }
     </>
   )
 }
