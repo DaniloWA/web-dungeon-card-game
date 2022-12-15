@@ -11,9 +11,9 @@ const Footer = () => {
             <div className="wave" id="wave4"></div>
           </div>
           <ul className="menu">
-            <li className="menu__item"><a className="menu__link" href="#">Linkedin</a></li>
-            <li className="menu__item"><a className="menu__link" href="#">Github</a></li>
-            <li className="menu__item"><a className="menu__link" href="#">Portfolio</a></li>
+            <li className="menu__item"><a className="menu__link" href="https://www.linkedin.com/in/danilo-oliveira-web/">Linkedin</a></li>
+            <li className="menu__item"><a className="menu__link" href="https://github.com/DaniloWA">Github</a></li>
+            <li className="menu__item"><a className="menu__link" href="https://daniloo.dev/">Portfolio</a></li>
           </ul>
           <p>&copy;2022 Danilo Oliveira | All Rights Reserved</p>
         </footer>
