@@ -5,4 +5,15 @@
   gap: minmax(10px, 10px);
   margin: 50px  0 50px 0;
   justify-self: center;
+  background: rgb(0,69,173);
+  background: linear-gradient(90deg, rgb(6, 19, 38) 0%, rgba(132,175,240,1) 10%, rgba(53,134,255,1) 50%, rgba(132,175,240,1) 90%, rgb(6, 19, 38) 100%);
+  padding-left: 40px;
+  padding-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  border-radius: 15px;
+  -webkit-box-shadow: -4px 1px 35px 9px rgba(0, 0, 0, 0.39);
+  -moz-box-shadow: -4px 1px 35px 9px rgba(0, 0, 0, 0.39);
+  box-shadow: -4px 1px 15px 15px rgba(0, 0, 0, 0.39);
+  border: 20% solid #ffffff;
 }
