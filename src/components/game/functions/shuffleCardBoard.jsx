@@ -1,11 +1,13 @@
-export const shuffleCardBoard = (monsterCards,itemCards,weaponCards) => { 
+export const shuffleCardBoard = (monsterCards,itemCards,weaponCards, playerCard) => { 
   const monsters = []
   const weapons = []
   const items = []
   const board = []
+  const player = [...playerCard]
   // 8 cards / 5 monstros - 2 items - 2 armas
-  for (let i = 1; i < 6; i++) {
-    monsters.push(monsterCards[Math.floor(Math.random() * monsterCards.length)]);
+  
+  for (let i = 1; i < 5; i++) {
+    monsters.push(monsterCards[Math.floor(Math.random() * monsterCards.length)]); // pegando um objeto aleatório de dentro do array
   }
   for (let i = 0; i < 2; i++) {
     weapons.push(weaponCards[Math.floor(Math.random() * weaponCards.length)]);
@@ -20,5 +22,7 @@ export const shuffleCardBoard = (monsterCards,itemCards,weaponCards) => {
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value)
 
+  shuffledBoard.splice(4, 0, ...player); // adicionando player ao centro do tabuleiro
+  
   return shuffledBoard
 }
