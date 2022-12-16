@@ -1,9 +1,10 @@
-import { monsterCards, itemCards, weaponCards} from "./cards";
+import { monsterCards, itemCards, weaponCards, player} from "./cards";
 
 const cards = {
     monsterCards,
     itemCards,
-    weaponCards
+    weaponCards,
+    player
 }
 
 export default cards
