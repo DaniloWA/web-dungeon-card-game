@@ -34,7 +34,7 @@ export const monsterCards = [
     },
   ]
 
- export const itemCards = [
+export const itemCards = [
     {
       typeCard: 1,
       title: "Bau",
@@ -49,6 +49,20 @@ export const monsterCards = [
     }
   ]
 
+export const player = [
+    {
+      typeCard: 99,
+      name: "Jogador",
+      description: "Lutador nato!",
+      life: 4,
+      lvl: 1,
+      dmg: 0,
+      exp: 0,
+      img: { "src": "/img/avatar.png"},
+      imgWeapon: { "src": "/img/no_weapon.png"}
+    }
+  ]
+  
 export const weaponCards = [
     {
       typeCard: 2,
